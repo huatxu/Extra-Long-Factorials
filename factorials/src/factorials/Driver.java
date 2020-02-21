@@ -1,0 +1,34 @@
+package factorials;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.math.BigInteger;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class Driver {
+	public static void main(String[] args) throws IOException {
+		Path inputFolder = Paths.get(".\\input");
+		Files.list(inputFolder).forEach(e -> drive(e));
+	}
+	private static void drive(Path path) {
+		BigInteger result = new BigInteger("0");
+		try(BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
+			int num = Integer.parseInt(reader.readLine());
+			result = new Factorial(num).get();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try(PrintWriter writer = new PrintWriter(new FileWriter(new File (path.toString().replace("input", "output"))))) {
+			writer.println(result);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

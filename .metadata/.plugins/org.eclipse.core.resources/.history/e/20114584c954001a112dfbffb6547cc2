@@ -1,0 +1,17 @@
+package factorials;
+
+public class Factorial { 
+	private int num;
+	public Factorial(int num) {
+		this.num = num;
+	}
+	
+	public long get() {
+		return factorialRec(num)
+	}
+	private long factorialRec(int number) {
+		
+		
+		return num;
+	}
+}

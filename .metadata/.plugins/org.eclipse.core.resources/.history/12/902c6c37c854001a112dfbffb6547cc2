@@ -1,0 +1,7 @@
+package factorials;
+
+public class Driver {
+	public static void main(String[] args) {
+		Path inputFolder = Paths.get(".\\input");
+	}
+}
